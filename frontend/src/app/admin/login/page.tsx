@@ -10,13 +10,17 @@ export default function AdminLoginPage() {
   const [sending, setSending] = useState(false);
 
   useEffect(() => {
-    if (!getAdminToken()) {
-      return;
-    }
+    const timer = window.setTimeout(() => {
+      if (!getAdminToken()) {
+        return;
+      }
 
-    fetchAdminMe()
-      .then(() => router.replace("/admin"))
-      .catch(() => undefined);
+      fetchAdminMe()
+        .then(() => router.replace("/admin"))
+        .catch(() => undefined);
+    }, 0);
+
+    return () => window.clearTimeout(timer);
   }, [router]);
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { navLinks } from "@/data/content";
+import { goToHash } from "@/lib/hash";
 import { mergeProfile, useSiteContent } from "@/lib/site-content";
 import { CloseIcon, MenuIcon } from "./Icons";
 import { ThemeToggle } from "./ThemeToggle";
@@ -13,17 +14,23 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-bg/70 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
-        <a href="#top" className="font-mono text-xs tracking-[0.22em] text-gold-soft">
+        <a href="#top" onClick={goToHash} className="font-mono text-xs tracking-[0.22em] text-gold-soft">
           SE / {profile.firstName.toUpperCase()}
         </a>
         <nav className="hidden items-center gap-8 text-sm text-mute md:flex">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className="nav-link transition-colors hover:text-gold">
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={goToHash}
+              className="nav-link transition-colors hover:text-gold"
+            >
               {link.label}
             </a>
           ))}
           <a
             href="#contact"
+            onClick={goToHash}
             className="btn-shine rounded-full border border-gold/40 px-4 py-1.5 text-gold-soft transition-colors hover:bg-gold/10"
           >
             Hire me
@@ -50,7 +57,10 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className="text-mute hover:text-ink"
-                onClick={() => setOpen(false)}
+                onClick={(event) => {
+                  goToHash(event);
+                  setOpen(false);
+                }}
               >
                 {link.label}
               </a>

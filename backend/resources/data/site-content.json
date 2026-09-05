@@ -22,6 +22,13 @@
     "skillsHeading": "A frontend core, with enough backend to ship.",
     "educationHeading": "Foundations.",
     "contactHeading": "Let’s build the next interface together.",
-    "contactIntro": "Available for frontend and product-engineering roles in Dubai and remote teams. Messages are stored through the Laravel + MongoDB API."
+    "contactIntro": "Available for frontend and product-engineering roles in Dubai and remote teams. Messages go to my inbox — I’ll reply by email.",
+    "servicesHeading": "What I can do for you.",
+    "servicesIntro": "Short engagements or a full-time seat. I take the frontend from first screen to something staff can actually use.",
+    "nowHeading": "Available now.",
+    "nowStatus": "Open to offers",
+    "nowStart": "Can start immediately",
+    "nowType": "Full-time or contract",
+    "nowWhere": "Dubai onsite · remote teams"
   }
 }

@@ -12,8 +12,10 @@ function readTheme(): Theme {
 
 export function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>("dark");
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const sync = () => setTheme(readTheme());
     sync();
     window.addEventListener("themechange", sync);
@@ -33,8 +35,9 @@ export function ThemeToggle() {
       type="button"
       onClick={toggle}
       className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-line text-gold-soft transition hover:border-gold/50 hover:bg-gold/10"
-      aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
-      title={theme === "dark" ? "Light" : "Dark"}
+      aria-label={!mounted || theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
+      title={!mounted || theme === "dark" ? "Light" : "Dark"}
+      suppressHydrationWarning
     >
       {theme === "dark" ? <SunIcon className="h-4 w-4" /> : <MoonIcon className="h-4 w-4" />}
     </button>

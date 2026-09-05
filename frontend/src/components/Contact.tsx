@@ -38,7 +38,7 @@ export function Contact() {
     <section id="contact" className="scroll-mt-24">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[0.9fr_1.1fr]">
         <Reveal>
-          <p className="font-mono text-xs tracking-[0.28em] text-gold">06 / Contact</p>
+          <p className="font-mono text-xs tracking-[0.28em] text-gold">08 / Contact</p>
           <h2 className="mt-4 font-serif text-4xl sm:text-5xl">
             {content.copy.contactHeading}
           </h2>
@@ -54,12 +54,38 @@ export function Contact() {
             </a>
             <p className="text-mute">{profile.location}</p>
             <a
+              href={profile.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="block text-mute hover:text-ink"
+            >
+              LinkedIn
+            </a>
+            <a
               href={profile.github}
               target="_blank"
               rel="noreferrer"
               className="block text-mute hover:text-ink"
             >
               {`github.com/${profile.githubHandle}`}
+            </a>
+          </div>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a
+              href={profile.whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-shine inline-flex items-center rounded-full bg-gold px-4 py-2 text-sm font-medium text-paper hover:bg-gold-soft"
+            >
+              WhatsApp
+            </a>
+            <a
+              href={profile.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center rounded-full border border-line px-4 py-2 text-sm text-ink hover:border-gold/50"
+            >
+              LinkedIn
             </a>
           </div>
         </Reveal>

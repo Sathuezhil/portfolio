@@ -1,6 +1,7 @@
 "use client";
 
 import { techMarquee } from "@/data/content";
+import { goToHash } from "@/lib/hash";
 import { mergeProfile, useSiteContent } from "@/lib/site-content";
 import { ArrowUpRight } from "./Icons";
 
@@ -26,6 +27,7 @@ export function Hero() {
           <div className="rise mt-8 flex flex-wrap items-center gap-3" style={{ animationDelay: "200ms" }}>
             <a
               href="#work"
+              onClick={goToHash}
               className="btn-shine inline-flex items-center gap-2 rounded-full bg-gold px-5 py-2.5 text-sm font-medium text-paper transition hover:bg-gold-soft"
             >
               View selected work
@@ -33,6 +35,7 @@ export function Hero() {
             </a>
             <a
               href="#contact"
+              onClick={goToHash}
               className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm text-ink transition hover:-translate-y-0.5 hover:border-gold/50"
             >
               Start a conversation

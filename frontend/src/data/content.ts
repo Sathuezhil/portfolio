@@ -12,8 +12,30 @@ export const siteCopy = {
   educationHeading: "Foundations.",
   contactHeading: "Let’s build the next interface together.",
   contactIntro:
-    "Available for frontend and product-engineering roles in Dubai and remote teams. Messages are stored through the Laravel + MongoDB API.",
+    "Available for frontend and product-engineering roles in Dubai and remote teams. Messages go to my inbox — I’ll reply by email.",
+  servicesHeading: "What I can do for you.",
+  servicesIntro: "Short engagements or a full-time seat. I take the frontend from first screen to something staff can actually use.",
+  nowHeading: "Available now.",
+  nowStatus: "Open to offers",
+  nowStart: "Can start immediately",
+  nowType: "Full-time or contract",
+  nowWhere: "Dubai onsite · remote teams",
 };
+
+export const services = [
+  {
+    title: "ERP UI",
+    summary: "Sales, inventory, kitchen, and admin modules that stay clear when the data gets messy.",
+  },
+  {
+    title: "POS systems",
+    summary: "Fast counter screens for bakeries, restaurants, and retail — built for real shift work.",
+  },
+  {
+    title: "Next.js sites",
+    summary: "Marketing and product sites with clean UI, solid performance, and a path to ship.",
+  },
+];
 
 export type SiteCopy = typeof siteCopy;
 
@@ -45,6 +67,8 @@ export const profile = {
   email: "ezhilarasisiva15@gmail.com",
   phone: "+971 56 865 7207",
   phoneHref: "tel:+971568657207",
+  whatsapp: "https://wa.me/971568657207",
+  linkedin: "https://www.linkedin.com/in/sathuryan-ezhilarasi-999928333",
   github: "https://github.com/Sathuezhil",
   githubHandle: "Sathuezhil",
   availability: "Open to frontend and full-stack roles",
@@ -61,6 +85,7 @@ export const navLinks = [
   { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
   { href: "#work", label: "Work" },
+  { href: "#services", label: "Services" },
   { href: "#skills", label: "Skills" },
   { href: "#contact", label: "Contact" },
 ];

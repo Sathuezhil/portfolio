@@ -28,6 +28,13 @@ const copyFields = [
   ["educationHeading", "Education heading", 1],
   ["contactHeading", "Contact heading", 2],
   ["contactIntro", "Contact intro", 4],
+  ["servicesHeading", "Services heading", 2],
+  ["servicesIntro", "Services intro", 3],
+  ["nowHeading", "Availability heading", 1],
+  ["nowStatus", "Availability status", 1],
+  ["nowStart", "Start date", 1],
+  ["nowType", "Full-time or contract", 1],
+  ["nowWhere", "Where you can work", 1],
 ] as const;
 
 export default function AdminTextsPage() {

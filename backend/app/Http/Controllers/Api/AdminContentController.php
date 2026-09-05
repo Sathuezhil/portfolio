@@ -38,6 +38,13 @@ class AdminContentController extends Controller
             'copy.educationHeading' => ['required', 'string', 'max:120'],
             'copy.contactHeading' => ['required', 'string', 'max:220'],
             'copy.contactIntro' => ['required', 'string', 'max:600'],
+            'copy.servicesHeading' => ['required', 'string', 'max:180'],
+            'copy.servicesIntro' => ['required', 'string', 'max:400'],
+            'copy.nowHeading' => ['required', 'string', 'max:120'],
+            'copy.nowStatus' => ['required', 'string', 'max:120'],
+            'copy.nowStart' => ['required', 'string', 'max:120'],
+            'copy.nowType' => ['required', 'string', 'max:120'],
+            'copy.nowWhere' => ['required', 'string', 'max:180'],
         ]);
 
         return response()->json($store->save($data));

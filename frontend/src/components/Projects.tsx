@@ -70,14 +70,12 @@ export function Projects() {
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
         <Reveal>
           <p className="font-mono text-xs tracking-[0.28em] text-gold">03 / Selected work</p>
-          <div className="mt-4 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-            <h2 className="max-w-xl font-serif text-4xl sm:text-5xl">
-              {copy.workHeading}
-            </h2>
-            <p className="max-w-sm text-sm leading-6 text-mute">
-              {copy.workIntro}
-            </p>
-          </div>
+          <h2 className="mt-4 max-w-3xl font-serif text-4xl sm:text-5xl">
+            {copy.workHeading}
+          </h2>
+          <p className="mt-4 max-w-2xl text-sm leading-6 text-mute">
+            {copy.workIntro}
+          </p>
         </Reveal>
 
         <div className="mt-12">

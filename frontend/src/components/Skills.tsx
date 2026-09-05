@@ -11,7 +11,7 @@ export function Skills() {
       <div className="mx-auto grid max-w-6xl gap-14 px-5 py-20 sm:px-8 lg:grid-cols-[1fr_0.85fr]">
         <div>
           <Reveal>
-            <p className="font-mono text-xs tracking-[0.28em] text-gold">04 / Skills</p>
+            <p className="font-mono text-xs tracking-[0.28em] text-gold">05 / Skills</p>
             <h2 className="mt-4 font-serif text-4xl sm:text-5xl">{copy.skillsHeading}</h2>
           </Reveal>
           <div className="mt-10 space-y-8">
@@ -34,7 +34,7 @@ export function Skills() {
         </div>
         <div>
           <Reveal>
-            <p className="font-mono text-xs tracking-[0.28em] text-gold">05 / Education</p>
+            <p className="font-mono text-xs tracking-[0.28em] text-gold">06 / Education</p>
             <h2 className="mt-4 font-serif text-4xl">{copy.educationHeading}</h2>
           </Reveal>
           <div className="mt-8 space-y-4">

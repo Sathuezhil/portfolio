@@ -17,20 +17,24 @@ export function AdminShell({ children }: { children: ReactNode }) {
   const [email, setEmail] = useState("");
 
   useEffect(() => {
-    if (!getAdminToken()) {
-      router.replace("/admin/login");
-      return;
-    }
-
-    fetchAdminMe()
-      .then((data) => {
-        setEmail(data?.email ?? "");
-        setReady(true);
-      })
-      .catch(() => {
-        adminLogout();
+    const timer = window.setTimeout(() => {
+      if (!getAdminToken()) {
         router.replace("/admin/login");
-      });
+        return;
+      }
+
+      fetchAdminMe()
+        .then((data) => {
+          setEmail(data?.email ?? "");
+          setReady(true);
+        })
+        .catch(() => {
+          adminLogout();
+          router.replace("/admin/login");
+        });
+    }, 0);
+
+    return () => window.clearTimeout(timer);
   }, [router]);
 
   if (!ready) {
