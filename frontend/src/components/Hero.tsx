@@ -1,7 +1,13 @@
-import { profile, techMarquee } from "@/data/content";
+"use client";
+
+import { techMarquee } from "@/data/content";
+import { mergeProfile, useSiteContent } from "@/lib/site-content";
 import { ArrowUpRight } from "./Icons";
 
 export function Hero() {
+  const content = useSiteContent();
+  const profile = mergeProfile(content);
+
   return (
     <section className="relative overflow-hidden pt-28 sm:pt-32">
       <div className="grid-fade pointer-events-none absolute inset-0" />
@@ -15,9 +21,7 @@ export function Hero() {
             <span className="italic text-gold-soft">{profile.lastName}</span>
           </h1>
           <p className="rise mt-6 max-w-xl text-lg leading-8 text-mute" style={{ animationDelay: "120ms" }}>
-            {profile.headline} in Dubai. I design and ship production interfaces for
-            ERP, POS, and customer-facing products — with React, Next.js, and a
-            careful eye for detail.
+            {content.copy.heroIntro}
           </p>
           <div className="rise mt-8 flex flex-wrap items-center gap-3" style={{ animationDelay: "200ms" }}>
             <a
@@ -56,7 +60,7 @@ export function Hero() {
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/55 to-transparent px-5 pb-5 pt-16">
               <p className="font-serif text-2xl text-white">{profile.role}</p>
-              <p className="mt-1 text-sm text-white/85">React · Next.js · Laravel</p>
+              <p className="mt-1 text-sm text-white/85">{content.copy.photoTagline}</p>
             </div>
           </div>
         </div>

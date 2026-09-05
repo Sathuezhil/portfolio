@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { navLinks, profile } from "@/data/content";
+import { navLinks } from "@/data/content";
+import { mergeProfile, useSiteContent } from "@/lib/site-content";
 import { CloseIcon, MenuIcon } from "./Icons";
 import { ThemeToggle } from "./ThemeToggle";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const profile = mergeProfile(useSiteContent());
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-bg/70 backdrop-blur-xl">

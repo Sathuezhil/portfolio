@@ -1,6 +1,7 @@
 "use client";
 
 import { academicProjects, projects, type Project } from "@/data/content";
+import { useSiteContent } from "@/lib/site-content";
 import { ArrowUpRight } from "./Icons";
 import { Reveal } from "./Reveal";
 
@@ -60,6 +61,7 @@ function ProjectGrid({ items, prefix }: { items: Project[]; prefix: string }) {
 }
 
 export function Projects() {
+  const { copy } = useSiteContent();
   const independent = projects.filter((project) => project.independent);
   const clientWork = projects.filter((project) => !project.independent);
 
@@ -70,10 +72,10 @@ export function Projects() {
           <p className="font-mono text-xs tracking-[0.28em] text-gold">03 / Selected work</p>
           <div className="mt-4 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <h2 className="max-w-xl font-serif text-4xl sm:text-5xl">
-              Products shipped for Germany and Sri Lanka.
+              {copy.workHeading}
             </h2>
             <p className="max-w-sm text-sm leading-6 text-mute">
-              Independent builds, plus ERP, POS, and marketing systems for clients.
+              {copy.workIntro}
             </p>
           </div>
         </Reveal>

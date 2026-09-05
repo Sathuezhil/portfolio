@@ -1,16 +1,18 @@
 "use client";
 
 import { experience, independentWork } from "@/data/content";
+import { useSiteContent } from "@/lib/site-content";
 import { Reveal } from "./Reveal";
 
 export function Experience() {
+  const { copy } = useSiteContent();
   return (
     <section id="experience" className="scroll-mt-24 border-b border-line">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
         <Reveal>
           <p className="font-mono text-xs tracking-[0.28em] text-gold">02 / Experience</p>
           <h2 className="mt-4 max-w-2xl font-serif text-4xl sm:text-5xl">
-            Production work across bakeries, restaurants, and retail systems.
+            {copy.experienceHeading}
           </h2>
         </Reveal>
         <div className="mt-14 space-y-6">

@@ -11,6 +11,7 @@ class Message extends Model
     protected $collection = 'messages';
 
     protected $fillable = [
+        'id',
         'name',
         'email',
         'subject',

@@ -1,11 +1,13 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { profile } from "@/data/content";
 import { sendContact } from "@/lib/api";
+import { mergeProfile, useSiteContent } from "@/lib/site-content";
 import { Reveal } from "./Reveal";
 
 export function Contact() {
+  const content = useSiteContent();
+  const profile = mergeProfile(content);
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
   const [error, setError] = useState("");
 
@@ -38,11 +40,10 @@ export function Contact() {
         <Reveal>
           <p className="font-mono text-xs tracking-[0.28em] text-gold">06 / Contact</p>
           <h2 className="mt-4 font-serif text-4xl sm:text-5xl">
-            Let’s build the next interface together.
+            {content.copy.contactHeading}
           </h2>
           <p className="mt-5 max-w-md leading-7 text-mute">
-            Available for frontend and product-engineering roles in Dubai and remote teams.
-            Messages are stored through the Laravel + MongoDB API.
+            {content.copy.contactIntro}
           </p>
           <div className="mt-8 space-y-3 text-sm">
             <a href={`mailto:${profile.email}`} className="block text-gold-soft hover:text-gold">

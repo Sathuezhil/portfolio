@@ -3,15 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Services\ContentStore;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\File;
 
 class PortfolioController extends Controller
 {
-    public function __invoke(): JsonResponse
+    public function __invoke(ContentStore $store): JsonResponse
     {
-        $path = resource_path('data/portfolio.json');
-
-        return response()->json(json_decode(File::get($path), true));
+        return response()->json($store->get());
     }
 }

@@ -1,6 +1,9 @@
-import { profile } from "@/data/content";
+"use client";
+
+import { mergeProfile, useSiteContent } from "@/lib/site-content";
 
 export function Footer() {
+  const profile = mergeProfile(useSiteContent());
   return (
     <footer className="border-t border-line">
       <div className="gold-rule" />
