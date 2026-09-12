@@ -31,7 +31,7 @@ export default function AdminLoginPage() {
 
     try {
       await adminLogin(String(form.get("email") ?? ""), String(form.get("password") ?? ""));
-      router.replace("/admin");
+      window.setTimeout(() => router.replace("/admin"), 0);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Unable to sign in.");
     } finally {

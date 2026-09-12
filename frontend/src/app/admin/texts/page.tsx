@@ -37,7 +37,7 @@ const copyFields = [
   ["nowWhere", "Where you can work", 1],
 ] as const;
 
-export default function AdminTextsPage() {
+function TextsEditor() {
   const [content, setContent] = useState<SiteContent | null>(null);
   const [status, setStatus] = useState<"idle" | "saving" | "ok" | "error">("idle");
   const [error, setError] = useState("");
@@ -68,15 +68,11 @@ export default function AdminTextsPage() {
   }
 
   if (!content) {
-    return (
-      <AdminShell>
-        <p className="text-sm text-mute">{error || "Loading texts…"}</p>
-      </AdminShell>
-    );
+    return <p className="text-sm text-mute">{error || "Loading texts…"}</p>;
   }
 
   return (
-    <AdminShell>
+    <>
       <p className="font-mono text-xs tracking-[0.28em] text-gold">Content</p>
       <h1 className="mt-2 font-serif text-4xl">Edit site texts</h1>
       <p className="mt-3 max-w-2xl text-sm leading-6 text-mute">
@@ -136,6 +132,14 @@ export default function AdminTextsPage() {
         {status === "ok" ? <p className="text-sm text-gold-soft">Saved. Refresh the public site to see the new copy.</p> : null}
         {status === "error" ? <p className="text-sm text-[var(--danger)]">{error}</p> : null}
       </form>
+    </>
+  );
+}
+
+export default function AdminTextsPage() {
+  return (
+    <AdminShell>
+      <TextsEditor />
     </AdminShell>
   );
 }

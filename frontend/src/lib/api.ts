@@ -100,6 +100,13 @@ export async function adminLogin(email: string, password: string) {
   const data = await parseJson<{ token?: string; message?: string }>(response);
 
   if (!response.ok || !data?.token) {
+    if (response.status === 503) {
+      throw new Error(
+        data?.message ??
+          "Admin login is not configured on this host. In Netlify, add ADMIN_EMAIL and ADMIN_PASSWORD, then trigger a new deploy.",
+      );
+    }
+
     throw new Error(data?.message ?? "Unable to sign in.");
   }
 

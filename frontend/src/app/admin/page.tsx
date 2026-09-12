@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { AdminShell } from "@/components/admin/AdminShell";
 import { deleteMessage, fetchAdminMessages, markMessageRead, type InboxMessage } from "@/lib/api";
 
-export default function AdminMessagesPage() {
+function Inbox() {
   const [messages, setMessages] = useState<InboxMessage[]>([]);
   const [unread, setUnread] = useState(0);
   const [selected, setSelected] = useState<InboxMessage | null>(null);
@@ -31,13 +31,15 @@ export default function AdminMessagesPage() {
   }
 
   return (
-    <AdminShell>
+    <>
       <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
         <div>
           <p className="font-mono text-xs tracking-[0.28em] text-gold">Inbox</p>
           <h1 className="mt-2 font-serif text-4xl">Messages from the site</h1>
         </div>
-        <p className="text-sm text-mute">{unread} unread · {messages.length} total</p>
+        <p className="text-sm text-mute">
+          {unread} unread · {messages.length} total
+        </p>
       </div>
       {error ? <p className="mt-6 text-sm text-[var(--danger)]">{error}</p> : null}
       <div className="mt-8 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
@@ -67,7 +69,9 @@ export default function AdminMessagesPage() {
         <div className="rounded-[1.5rem] border border-line bg-surface/50 p-6">
           {selected ? (
             <>
-              <p className="font-mono text-xs text-gold">{new Date(selected.created_at).toLocaleString()}</p>
+              <p className="font-mono text-xs text-gold" suppressHydrationWarning>
+                {new Date(selected.created_at).toLocaleString()}
+              </p>
               <h2 className="mt-2 font-serif text-3xl">{selected.subject}</h2>
               <p className="mt-3 text-sm">
                 {selected.name} ·{" "}
@@ -93,6 +97,14 @@ export default function AdminMessagesPage() {
           )}
         </div>
       </div>
+    </>
+  );
+}
+
+export default function AdminMessagesPage() {
+  return (
+    <AdminShell>
+      <Inbox />
     </AdminShell>
   );
 }

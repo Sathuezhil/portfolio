@@ -67,7 +67,12 @@ export function checkLogin(email: string, password: string) {
   const admin = adminCredentials();
 
   if (!admin.email || !admin.password) {
-    return { ok: false as const, status: 503, message: "Admin login is not configured." };
+    return {
+      ok: false as const,
+      status: 503,
+      message:
+        "Admin login is not configured on this host. In Netlify, add ADMIN_EMAIL and ADMIN_PASSWORD, then trigger a new deploy.",
+    };
   }
 
   if (!same(admin.email, email) || !same(admin.password, password)) {
