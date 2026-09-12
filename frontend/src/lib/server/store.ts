@@ -1,8 +1,9 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import type { InboxMessage } from "@/lib/api";
-import type { SiteContent } from "@/data/content";
+import { projects as defaultProjects, type Project, type SiteContent } from "@/data/content";
 import { defaultSiteContent, normalizeContent } from "./defaults";
+import { normalizeProjects } from "./projects";
 
 type TokenMap = Record<string, string>;
 
@@ -73,6 +74,17 @@ export async function getContent(): Promise<SiteContent> {
 export async function saveContent(content: SiteContent) {
   const next = normalizeContent(content);
   await writeKey("content", next);
+  return next;
+}
+
+export async function getProjects(): Promise<Project[]> {
+  const stored = await readKey<Project[] | null>("projects", null);
+  return normalizeProjects(stored ?? defaultProjects);
+}
+
+export async function saveProjects(items: Project[]) {
+  const next = normalizeProjects(items);
+  await writeKey("projects", next);
   return next;
 }
 

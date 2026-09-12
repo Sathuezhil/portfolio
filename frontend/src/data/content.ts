@@ -39,6 +39,19 @@ export const services = [
 
 export type SiteCopy = typeof siteCopy;
 
+export type Project = {
+  slug: string;
+  title: string;
+  client: string;
+  year: string;
+  stack: string[];
+  href: string | null;
+  github: string | null;
+  featured: boolean;
+  independent?: boolean;
+  description: string;
+};
+
 export type EditableProfile = {
   firstName: string;
   lastName: string;
@@ -55,6 +68,7 @@ export type EditableProfile = {
 export type SiteContent = {
   profile: EditableProfile;
   copy: SiteCopy;
+  projects?: Project[];
 };
 
 export const profile = {
@@ -150,19 +164,6 @@ export const independentWork = {
   highlights: [
     "SS Studio — full-stack Laravel, PHP, and MySQL studio application.",
   ],
-};
-
-export type Project = {
-  slug: string;
-  title: string;
-  client: string;
-  year: string;
-  stack: string[];
-  href: string | null;
-  github: string | null;
-  featured: boolean;
-  independent?: boolean;
-  description: string;
 };
 
 export const projects: Project[] = [

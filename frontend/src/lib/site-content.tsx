@@ -1,7 +1,12 @@
 "use client";
 
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
-import { profile as fallbackProfile, siteCopy as fallbackCopy, type SiteContent } from "@/data/content";
+import {
+  profile as fallbackProfile,
+  projects as fallbackProjects,
+  siteCopy as fallbackCopy,
+  type SiteContent,
+} from "@/data/content";
 import { fetchSiteContent } from "./api";
 
 const fallbackContent: SiteContent = {
@@ -18,6 +23,7 @@ const fallbackContent: SiteContent = {
     availability: fallbackProfile.availability,
   },
   copy: fallbackCopy,
+  projects: fallbackProjects,
 };
 
 const SiteContentContext = createContext<SiteContent>(fallbackContent);

@@ -1,6 +1,6 @@
 "use client";
 
-import { academicProjects, projects, type Project } from "@/data/content";
+import { academicProjects, projects as fallbackProjects, type Project } from "@/data/content";
 import { useSiteContent } from "@/lib/site-content";
 import { ArrowUpRight } from "./Icons";
 import { Reveal } from "./Reveal";
@@ -61,9 +61,10 @@ function ProjectGrid({ items, prefix }: { items: Project[]; prefix: string }) {
 }
 
 export function Projects() {
-  const { copy } = useSiteContent();
-  const independent = projects.filter((project) => project.independent);
-  const clientWork = projects.filter((project) => !project.independent);
+  const { copy, projects: liveProjects } = useSiteContent();
+  const items = liveProjects?.length ? liveProjects : fallbackProjects;
+  const independent = items.filter((project) => project.independent);
+  const clientWork = items.filter((project) => !project.independent);
 
   return (
     <section id="work" className="scroll-mt-24 border-b border-line">
@@ -78,18 +79,22 @@ export function Projects() {
           </p>
         </Reveal>
 
-        <div className="mt-12">
-          <h3 className="font-serif text-2xl italic text-gold-soft">Independent</h3>
-          <p className="mt-2 max-w-xl text-sm leading-6 text-mute">
-            Built on my own, outside company work.
-          </p>
-          <ProjectGrid items={independent} prefix="IND " />
-        </div>
+        {independent.length ? (
+          <div className="mt-12">
+            <h3 className="font-serif text-2xl italic text-gold-soft">Independent</h3>
+            <p className="mt-2 max-w-xl text-sm leading-6 text-mute">
+              Built on my own, outside company work.
+            </p>
+            <ProjectGrid items={independent} prefix="IND " />
+          </div>
+        ) : null}
 
-        <div className="mt-16">
-          <h3 className="font-serif text-2xl italic text-gold-soft">Client & company work</h3>
-          <ProjectGrid items={clientWork} prefix="" />
-        </div>
+        {clientWork.length ? (
+          <div className="mt-16">
+            <h3 className="font-serif text-2xl italic text-gold-soft">Client & company work</h3>
+            <ProjectGrid items={clientWork} prefix="" />
+          </div>
+        ) : null}
 
         <div className="mt-16">
           <h3 className="font-serif text-2xl italic text-gold-soft">Academic studio</h3>

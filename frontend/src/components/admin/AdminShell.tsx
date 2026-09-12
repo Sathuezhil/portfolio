@@ -7,6 +7,7 @@ import { adminLogout, fetchAdminMe, getAdminToken } from "@/lib/api";
 
 const links = [
   { href: "/admin", label: "Messages" },
+  { href: "/admin/projects", label: "Projects" },
   { href: "/admin/texts", label: "Texts" },
 ];
 

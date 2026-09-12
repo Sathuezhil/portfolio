@@ -1,4 +1,4 @@
-import { siteCopy, type SiteContent } from "@/data/content";
+import { projects as fallbackProjects, siteCopy, type Project, type SiteContent } from "@/data/content";
 
 const API_URL = (process.env.NEXT_PUBLIC_API_URL ?? "").replace(/\/$/, "");
 const TOKEN_KEY = "portfolio-admin-token";
@@ -53,11 +53,12 @@ export async function fetchSiteContent(): Promise<SiteContent> {
     throw new Error("Unable to load site content.");
   }
 
-  const data = (await response.json()) as Partial<SiteContent>;
+  const data = (await response.json()) as Partial<SiteContent> & { projects?: Project[] };
 
   return {
     profile: data.profile as SiteContent["profile"],
     copy: { ...siteCopy, ...data.copy },
+    projects: Array.isArray(data.projects) ? data.projects : fallbackProjects,
   };
 }
 
@@ -192,6 +193,37 @@ export async function fetchAdminContent() {
   }
 
   return data as SiteContent;
+}
+
+export async function fetchAdminProjects() {
+  const response = await fetch(`${API_URL}/api/admin/projects`, {
+    headers: adminHeaders(),
+    cache: "no-store",
+  });
+
+  const data = await parseJson<{ projects?: Project[]; message?: string }>(response);
+
+  if (!response.ok) {
+    throw new Error(data?.message ?? "Unable to load projects.");
+  }
+
+  return data?.projects ?? fallbackProjects;
+}
+
+export async function saveAdminProjects(items: Project[]) {
+  const response = await fetch(`${API_URL}/api/admin/projects`, {
+    method: "PUT",
+    headers: adminHeaders(),
+    body: JSON.stringify({ projects: items }),
+  });
+
+  const data = await parseJson<{ projects?: Project[]; message?: string }>(response);
+
+  if (!response.ok || !data?.projects) {
+    throw new Error(data?.message ?? "Unable to save projects.");
+  }
+
+  return data.projects;
 }
 
 export async function saveAdminContent(payload: SiteContent) {
