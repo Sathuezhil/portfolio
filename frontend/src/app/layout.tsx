@@ -23,14 +23,14 @@ const instrument = Instrument_Serif({
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ezhilsathu-portfolio.netlify.app";
 
 export const metadata: Metadata = {
-  title: "Sathuryan Ezhilarasi — Software Engineer",
+  title: "Sathuryan Ezhilarasi — Full Stack Engineer",
   description:
-    "Frontend engineer in Dubai building responsive web applications with React, Next.js, TypeScript, Laravel, and modern UI systems.",
+    "Full-stack engineer in Dubai building responsive web applications with React, Next.js, TypeScript, Laravel, and modern UI systems.",
   metadataBase: new URL(siteUrl),
   openGraph: {
-    title: "Sathuryan Ezhilarasi · Frontend Engineer · Dubai",
+    title: "Sathuryan Ezhilarasi · Full Stack Engineer · Dubai",
     description:
-      "Frontend engineer in Dubai. I design ERP, POS, and Next.js product interfaces for teams in Germany, Sri Lanka, and the UAE.",
+      "Full-stack engineer in Dubai. I design ERP, POS, and Next.js product interfaces for teams in Germany, Sri Lanka, and the UAE.",
     type: "website",
     url: "/",
     siteName: "Sathuryan Ezhilarasi",
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sathuryan Ezhilarasi · Frontend Engineer · Dubai",
+    title: "Sathuryan Ezhilarasi · Full Stack Engineer · Dubai",
     description:
-      "Frontend engineer in Dubai building ERP, POS, and Next.js product interfaces.",
+      "Full-stack engineer in Dubai building ERP, POS, and Next.js product interfaces.",
   },
 };
 

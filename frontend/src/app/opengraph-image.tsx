@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
-export const alt = "Sathuryan Ezhilarasi · Frontend Engineer · Dubai";
+export const alt = "Sathuryan Ezhilarasi · Full Stack Engineer · Dubai";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -33,7 +33,7 @@ export default async function OpenGraphImage() {
               color: "#e88992",
             }}
           >
-            Frontend Engineer
+            Full Stack Engineer
           </div>
           <div style={{ marginTop: 28, fontSize: 72, lineHeight: 1, fontFamily: "Georgia, serif" }}>
             Sathuryan
@@ -51,7 +51,7 @@ export default async function OpenGraphImage() {
             Ezhilarasi
           </div>
           <div style={{ marginTop: 28, fontSize: 28, color: "#d4c4bb" }}>
-            Sathuryan Ezhilarasi · Frontend Engineer · Dubai
+            Sathuryan Ezhilarasi · Full Stack Engineer · Dubai
           </div>
         </div>
         <img

@@ -1,20 +1,21 @@
 export const siteCopy = {
   heroIntro:
-    "Frontend Engineer in Dubai. I design and ship production interfaces for ERP, POS, and customer-facing products — with React, Next.js, and a careful eye for detail.",
+    "Full Stack Engineer in Dubai. I design and ship production interfaces for ERP, POS, and customer-facing products — with React, Next.js, and a careful eye for detail.",
   photoTagline: "React · Next.js · Laravel",
   aboutHeading: "Building interfaces people can actually work with.",
   aboutSummary:
-    "Frontend developer with hands-on experience building responsive, user-friendly web applications using React.js, Next.js, TypeScript, JavaScript, Tailwind CSS, and Material UI. Experienced in API integration and modern UI systems, with additional practice in Node.js, Laravel, and MySQL. I care about clean interfaces, reliable delivery, and products that feel easy to use.",
+    "Full-stack engineer with hands-on experience building responsive, user-friendly web applications using React.js, Next.js, TypeScript, JavaScript, Tailwind CSS, and Material UI. Experienced in API integration and modern UI systems, with additional practice in Node.js, Laravel, and MySQL. I care about clean interfaces, reliable delivery, and products that feel easy to use.",
   experienceHeading: "Production work across bakeries, restaurants, and retail systems.",
   workHeading: "Products shipped for Germany and Sri Lanka.",
   workIntro: "Independent builds, plus ERP, POS, and marketing systems for clients.",
-  skillsHeading: "A frontend core, with enough backend to ship.",
+  skillsHeading: "Web, mobile, and the backend that connects them.",
   educationHeading: "Foundations.",
   contactHeading: "Let’s build the next interface together.",
   contactIntro:
-    "Available for frontend and product-engineering roles in Dubai and remote teams. Messages go to my inbox — I’ll reply by email.",
+    "Available for full-stack and product-engineering roles in Dubai and remote teams. Messages go to my inbox — I’ll reply by email.",
   servicesHeading: "What I can do for you.",
-  servicesIntro: "Short engagements or a full-time seat. I take the frontend from first screen to something staff can actually use.",
+  servicesIntro:
+    "Short engagements or a full-time seat. I build the whole product — web and mobile apps, the APIs behind them, and the database underneath.",
   nowHeading: "Available now.",
   nowStatus: "Open to offers",
   nowStart: "Can start immediately",
@@ -24,16 +25,24 @@ export const siteCopy = {
 
 export const services = [
   {
-    title: "ERP UI",
-    summary: "Sales, inventory, kitchen, and admin modules that stay clear when the data gets messy.",
+    title: "Web applications",
+    summary:
+      "Full-stack web apps with React and Next.js on the front, Laravel or Node.js behind, and admin dashboards your team can run day to day.",
   },
   {
-    title: "POS systems",
-    summary: "Fast counter screens for bakeries, restaurants, and retail — built for real shift work.",
+    title: "Mobile apps",
+    summary:
+      "Cross-platform iOS and Android apps with React Native and Expo, sharing the same APIs and data as your web product.",
   },
   {
-    title: "Next.js sites",
-    summary: "Marketing and product sites with clean UI, solid performance, and a path to ship.",
+    title: "APIs & backend",
+    summary:
+      "REST APIs, database design in MySQL or MongoDB, authentication, and integrations — built to stay reliable as usage grows.",
+  },
+  {
+    title: "ERP & POS systems",
+    summary:
+      "Sales, inventory, kitchen, and counter modules for bakeries, restaurants, and retail — built for real shift work.",
   },
 ];
 
@@ -75,8 +84,8 @@ export const profile = {
   firstName: "Sathuryan",
   lastName: "Ezhilarasi",
   fullName: "Sathuryan Ezhilarasi",
-  role: "Software Engineer",
-  headline: "Frontend Engineer",
+  role: "Full Stack Engineer",
+  headline: "Full Stack Engineer",
   location: "Al Rashidiya, Dubai, UAE",
   email: "ezhilarasisiva15@gmail.com",
   phone: "+971 56 865 7207",
@@ -85,7 +94,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/sathuryan-ezhilarasi-999928333",
   github: "https://github.com/Sathuezhil",
   githubHandle: "Sathuezhil",
-  availability: "Open to frontend and full-stack roles",
+  availability: "Open to full-stack roles",
   summary: siteCopy.aboutSummary,
   stats: [
     { value: "1.5+", label: "Years in production" },
@@ -190,7 +199,20 @@ export const projects: Project[] = [
     featured: true,
     independent: true,
     description:
-      "Personal full-stack studio platform I built on my own — frontend, backend, database design, APIs, authentication, and core booking workflows.",
+      "Website for SS Studio, a photography studio in Trincomalee. A cinematic hero slider, services for wedding, model, puberty, baby, and maternity shoots, a category-filtered gallery, highlight videos, the founder's story, and a contact form linked to WhatsApp, social channels, and Google Maps.",
+  },
+  {
+    slug: "moodly",
+    title: "Moodly",
+    client: "Independent",
+    year: "2026",
+    stack: ["Next.js", "TypeScript", "React", "Tailwind CSS"],
+    href: "https://moodtrackerss.netlify.app/",
+    github: "https://github.com/Sathuezhil/moodtracker",
+    featured: false,
+    independent: true,
+    description:
+      "A daily mood tracker for checking in on how you feel. Log a mood, write journal entries and sticky notes, save memories, tick off self-care habits, and follow streaks, badges, and weekly insights on a calendar.",
   },
   {
     slug: "spare-market",
@@ -343,16 +365,30 @@ export const skillGroups = [
     ],
   },
   {
-    title: "Backend & data",
-    items: ["Laravel", "PHP", "Node.js", "MySQL", "MongoDB", "REST APIs"],
+    title: "Mobile",
+    items: ["React Native", "Expo", "iOS & Android", "Mobile UI"],
   },
   {
-    title: "Product & craft",
+    title: "Backend & data",
+    items: [
+      "Laravel",
+      "PHP",
+      "Node.js",
+      "REST APIs",
+      "MySQL",
+      "MongoDB",
+      "Authentication",
+      "Database design",
+    ],
+  },
+  {
+    title: "Product & delivery",
     items: [
       "UI / UX",
       "Responsive design",
       "API integration",
-      "GitHub",
+      "Git & GitHub",
+      "Netlify deployment",
       "Fast delivery",
       "Leadership",
     ],

@@ -8,6 +8,7 @@ import { Navbar } from "@/components/Navbar";
 import { Projects } from "@/components/Projects";
 import { Services } from "@/components/Services";
 import { Skills } from "@/components/Skills";
+import { TiltEffect } from "@/components/TiltEffect";
 import { SiteContentProvider } from "@/lib/site-content";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
     <SiteContentProvider>
       <div id="top" className="relative">
         <div className="grain" />
+        <TiltEffect />
         <Navbar />
         <main>
           <Hero />

@@ -7,14 +7,10 @@ import { Reveal } from "./Reveal";
 
 function ProjectGrid({ items, prefix }: { items: Project[]; prefix: string }) {
   return (
-    <div className="mt-8 grid gap-5 md:grid-cols-2">
+    <div className="mt-8 grid auto-rows-fr gap-5 md:grid-cols-2">
       {items.map((project, index) => (
-        <Reveal key={project.slug} delay={index * 70}>
-        <article
-          className={`card-lift group rounded-[1.5rem] border border-line bg-surface/60 p-6 ${
-            project.featured ? "md:min-h-[280px]" : ""
-          }`}
-        >
+        <Reveal key={project.slug} delay={index * 70} className="h-full">
+        <article className="card-lift group flex h-full flex-col rounded-[1.5rem] border border-line bg-surface/60 p-6 md:min-h-[340px]">
           <div className="flex items-start justify-between gap-4">
             <p className="font-mono text-xs text-gold">
               {prefix}
@@ -31,7 +27,7 @@ function ProjectGrid({ items, prefix }: { items: Project[]; prefix: string }) {
               </span>
             ))}
           </div>
-          <div className="mt-6 flex flex-wrap gap-4 text-sm">
+          <div className="mt-auto flex flex-wrap gap-4 pt-6 text-sm">
             {project.href ? (
               <a
                 href={project.href}
@@ -98,10 +94,10 @@ export function Projects() {
 
         <div className="mt-16">
           <h3 className="font-serif text-2xl italic text-gold-soft">Academic studio</h3>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          <div className="mt-6 grid auto-rows-fr gap-4 sm:grid-cols-2">
             {academicProjects.map((project, index) => (
-              <Reveal key={project.title} delay={index * 80}>
-              <div className="card-lift rounded-2xl border border-line p-5">
+              <Reveal key={project.title} delay={index * 80} className="h-full">
+              <div className="card-lift h-full rounded-2xl border border-line p-5">
                 <p className="font-mono text-xs text-gold">{project.stack}</p>
                 <p className="mt-2 text-lg">{project.title}</p>
                 <p className="mt-2 text-sm leading-6 text-mute">{project.description}</p>

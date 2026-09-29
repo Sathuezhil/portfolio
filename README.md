@@ -1,6 +1,6 @@
 # Sathuryan Ezhilarasi — Portfolio
 
-Professional portfolio for a frontend engineer based in Dubai. Built from the latest CV, with a Next.js / React frontend and a Laravel + MongoDB API for contact messages.
+Professional portfolio for a full-stack engineer based in Dubai. Built from the latest CV, with a Next.js / React frontend and a Laravel + MongoDB API for contact messages.
 
 ## Stack
 

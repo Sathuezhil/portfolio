@@ -55,15 +55,20 @@ export function Hero() {
 
         <div className="rise relative mx-auto w-full max-w-sm" style={{ animationDelay: "160ms" }}>
           <div className="absolute -inset-6 rounded-full bg-gold/10 blur-3xl" />
-          <div className="photo-float relative overflow-hidden rounded-[2rem] border border-line bg-surface shadow-[0_24px_60px_rgba(114,47,55,0.14)]">
-            <img
-              src="/avatar.jpg?v=2"
-              alt={profile.fullName}
-              className="aspect-[4/5] w-full object-cover object-[center_18%]"
-            />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/55 to-transparent px-5 pb-5 pt-16">
-              <p className="font-serif text-2xl text-white">{profile.role}</p>
-              <p className="mt-1 text-sm text-white/85">{content.copy.photoTagline}</p>
+          <div className="photo-float relative">
+            <div
+              data-tilt="9"
+              className="relative overflow-hidden rounded-[2rem] border border-line bg-surface shadow-[0_24px_60px_rgba(114,47,55,0.14)]"
+            >
+              <img
+                src="/avatar.jpg?v=2"
+                alt={profile.fullName}
+                className="aspect-[4/5] w-full object-cover object-[center_18%]"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/55 to-transparent px-5 pb-5 pt-16">
+                <p className="font-serif text-2xl text-white">{profile.role}</p>
+                <p className="mt-1 text-sm text-white/85">{content.copy.photoTagline}</p>
+              </div>
             </div>
           </div>
         </div>
