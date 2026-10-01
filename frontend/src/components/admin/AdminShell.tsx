@@ -9,6 +9,7 @@ const links = [
   { href: "/admin", label: "Messages" },
   { href: "/admin/projects", label: "Projects" },
   { href: "/admin/texts", label: "Texts" },
+  { href: "/admin/cv", label: "CV" },
 ];
 
 export function AdminShell({ children }: { children: ReactNode }) {

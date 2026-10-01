@@ -41,7 +41,7 @@ export function Hero() {
               Start a conversation
             </a>
             <a
-              href="/sathuryan-ezhilarasi.pdf"
+              href="/api/cv"
               download
               className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm text-mute transition hover:text-ink"
             >

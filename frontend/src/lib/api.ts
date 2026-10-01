@@ -226,6 +226,61 @@ export async function saveAdminProjects(items: Project[]) {
   return data.projects;
 }
 
+export type CvInfo = {
+  name: string;
+  size: number;
+  updatedAt: string;
+};
+
+export async function fetchAdminCv() {
+  const response = await fetch(`${API_URL}/api/admin/cv`, {
+    headers: adminHeaders(),
+    cache: "no-store",
+  });
+
+  const data = await parseJson<{ cv?: CvInfo | null; message?: string }>(response);
+
+  if (!response.ok) {
+    throw new Error(data?.message ?? "Unable to load the CV.");
+  }
+
+  return data?.cv ?? null;
+}
+
+export async function uploadAdminCv(file: File) {
+  const token = getAdminToken();
+  const form = new FormData();
+  form.append("file", file);
+
+  const response = await fetch(`${API_URL}/api/admin/cv`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    },
+    body: form,
+  });
+
+  const data = await parseJson<{ cv?: CvInfo; message?: string }>(response);
+
+  if (!response.ok || !data?.cv) {
+    throw new Error(data?.message ?? "Unable to upload the CV.");
+  }
+
+  return data.cv;
+}
+
+export async function removeAdminCv() {
+  const response = await fetch(`${API_URL}/api/admin/cv`, {
+    method: "DELETE",
+    headers: adminHeaders(),
+  });
+
+  if (!response.ok) {
+    throw new Error("Unable to remove the CV.");
+  }
+}
+
 export async function saveAdminContent(payload: SiteContent) {
   const response = await fetch(`${API_URL}/api/admin/content`, {
     method: "PUT",

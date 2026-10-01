@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import type { InboxMessage } from "@/lib/api";
 import { projects as defaultProjects, type Project, type SiteContent } from "@/data/content";
@@ -86,6 +86,65 @@ export async function saveProjects(items: Project[]) {
   const next = normalizeProjects(items);
   await writeKey("projects", next);
   return next;
+}
+
+export type CvInfo = {
+  name: string;
+  size: number;
+  updatedAt: string;
+};
+
+const CV_KEY = "cv";
+
+export async function getCvInfo(): Promise<CvInfo | null> {
+  return readKey<CvInfo | null>(`${CV_KEY}-info`, null);
+}
+
+export async function getCvFile(): Promise<ArrayBuffer | null> {
+  const store = await blobStore();
+
+  if (store) {
+    try {
+      return (await store.get(CV_KEY, { type: "arrayBuffer" })) ?? null;
+    } catch {
+      return null;
+    }
+  }
+
+  try {
+    const file = await readFile(path.join(DATA_DIR, `${CV_KEY}.pdf`));
+    return file.buffer.slice(file.byteOffset, file.byteOffset + file.byteLength) as ArrayBuffer;
+  } catch {
+    return null;
+  }
+}
+
+export async function saveCv(data: ArrayBuffer, name: string) {
+  const info: CvInfo = { name, size: data.byteLength, updatedAt: new Date().toISOString() };
+  const store = await blobStore();
+
+  if (store) {
+    await store.set(CV_KEY, data);
+  } else {
+    await mkdir(DATA_DIR, { recursive: true });
+    await writeFile(path.join(DATA_DIR, `${CV_KEY}.pdf`), Buffer.from(data));
+  }
+
+  await writeKey(`${CV_KEY}-info`, info);
+  return info;
+}
+
+export async function removeCv() {
+  const store = await blobStore();
+
+  if (store) {
+    await store.delete(CV_KEY);
+    await store.delete(`${CV_KEY}-info`);
+    return;
+  }
+
+  await rm(path.join(DATA_DIR, `${CV_KEY}.pdf`), { force: true });
+  await rm(path.join(DATA_DIR, `${CV_KEY}-info.json`), { force: true });
 }
 
 export async function getTokens(): Promise<TokenMap> {
